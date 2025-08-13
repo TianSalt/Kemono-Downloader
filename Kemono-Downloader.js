@@ -4,16 +4,16 @@
 // @version      2024-12-17
 // @description  Add a button to download all pictures in a post.
 // @author       TianSalt
-// @match        https://*.kemono.su/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=kemono.su
+// @match        https://*.kemono.cr/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=kemono.cr
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
     const url = new URL(window.location.href);
-    const isDownloadPage = new RegExp("https://n\\d\\.kemono\\.su/\\?a=").test(url.href);
-    const isImagePage = new RegExp("https://n\\d\\.kemono\\.su/data/").test(url.href);
+    const isDownloadPage = new RegExp("https://n\\d\\.kemono\\.cr/\\?a=").test(url.href);
+    const isImagePage = new RegExp("https://n\\d\\.kemono\\.cr/data/").test(url.href);
     if (!isDownloadPage && !isImagePage) {
         let button = document.createElement("button");
         button.innerText = "⭳";
@@ -47,7 +47,7 @@
             for (let i = 0; i < 4; i++) {
                 if (arr[i].length) {
                     const links = encodeURIComponent(JSON.stringify(arr[i]));
-                    setTimeout(() => { window.open(`https://n${i+1}.kemono.su/?a=${links}`, `_wnd${i}`); }, 0);
+                    setTimeout(() => { window.open(`https://n${i+1}.kemono.cr/?a=${links}`, `_wnd${i}`); }, 0);
                 }
             }
         };
